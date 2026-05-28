@@ -12,9 +12,12 @@
   <Folder Name="/src/Presentation/">
     <Project Path="WeatherService.API/WeatherService.API.csproj" />
   </Folder>
-  <Folder Name="/tests/">
-    <Project Path="../WeatherService.Application.Tests/WeatherService.Application.Tests.csproj" Id="1135cdf3-5e48-4c12-b692-4a31ee69d572" />
-    <Project Path="../WeatherService.Integration.Tests/WeatherService.Integration.Tests.csproj" Id="1d582137-5f7d-46ff-9172-3294147fb4ee" />
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/IntegrationTests/">
+    <Project Path="WeatherService.IntegrationTests/WeatherService.IntegrationTests.csproj" Id="2d661c70-152a-4b5f-b1c4-339d13fd865f" />
+  </Folder>
+  <Folder Name="/tests/UnitTests/">
+    <Project Path="WeatherService.UnitTests/WeatherService.UnitTests.csproj" Id="a7cb2b2e-9cfc-4cf1-bacd-d8c03bd383b4" />
   </Folder>
   <Project Path="docker-compose.dcproj">
     <Build />
