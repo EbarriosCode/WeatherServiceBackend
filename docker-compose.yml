@@ -1,0 +1,37 @@
+services:
+  weatherservice.api:
+    image: ${DOCKER_REGISTRY-}weatherserviceapi
+    container_name: weather-service-backend
+    build:
+      context: .
+      dockerfile: WeatherService.API/Dockerfile
+    depends_on:
+      - mongodb
+    env_file:
+      - DEV.env
+
+  mongodb:
+      image: mongo:6.0
+      container_name: mongodb-weather
+      restart: always
+      ports:
+        - "27017:27017"
+      env_file:
+        - DEV.env
+      volumes:
+        - mongo_data:/data/db
+        - ./init-db.js:/docker-entrypoint-initdb.d/init-db.js:ro
+      
+  mongo-express:
+      image: mongo-express
+      container_name: mongo-express-weather
+      restart: always
+      ports:
+        - "8081:8081"
+      env_file:
+        - DEV.env
+      depends_on:
+        - mongodb
+
+volumes:
+  mongo_data:

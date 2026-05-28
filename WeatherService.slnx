@@ -1,0 +1,22 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Application/">
+    <Project Path="WeatherService.Application/WeatherService.Application.csproj" />
+  </Folder>
+  <Folder Name="/src/Domain/">
+    <Project Path="WeatherService.Domain/WeatherService.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="WeatherService.Infrastructure/WeatherService.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Presentation/">
+    <Project Path="WeatherService.API/WeatherService.API.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="../WeatherService.Application.Tests/WeatherService.Application.Tests.csproj" Id="1135cdf3-5e48-4c12-b692-4a31ee69d572" />
+    <Project Path="../WeatherService.Integration.Tests/WeatherService.Integration.Tests.csproj" Id="1d582137-5f7d-46ff-9172-3294147fb4ee" />
+  </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+</Solution>
