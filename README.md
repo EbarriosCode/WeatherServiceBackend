@@ -453,6 +453,28 @@ WeatherService/
 
 ---
 
+## Testing
+
+The project has two levels of testing.
+
+**Unit tests** (`WeatherService.UnitTests`) — fast, no Docker, no external dependencies. They test the business logic of `WeatherServiceImp` in isolation using Moq to mock `IWeatherRepository`, `IWeatherExternalClient`, and `IGeoCodingExternalClient`. They cover the main cache-aside scenarios: cache hit, cache miss, expired cache, city-to-coordinates resolution, and input validations.
+
+**Integration tests** (`WeatherService.IntegrationTests`) — run the actual API with `WebApplicationFactory` and a live MongoDB instance using Testcontainers. They test the full end-to-end flow: from the HTTP endpoint to MongoDB and the call to Open-Meteo. They require Docker Desktop to be running.
+
+To run the tests:
+
+```bash
+# Unit tests only
+dotnet test tests/WeatherService.UnitTests
+
+# Integration tests only (requires Docker Desktop)
+dotnet test tests/WeatherService.IntegrationTests
+
+# All tests
+dotnet test
+```
+---
+
 ## Design Decisions
 
 **No CQRS or MediatR** — the scope of two read endpoints does not justify the indirection. A simple service is more readable and maintainable.
